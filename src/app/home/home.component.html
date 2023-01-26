@@ -1,0 +1,27 @@
+
+
+<section class="movies-section">
+    <div class="movies-header">
+        <input type="text" name="search" id="" placeholder="Rechercher un film"> 
+    </div>
+    <div class="movies-container">
+        <div class="movie" *ngFor="let movie of moviesData.results | paginate: { itemsPerPage: 50, currentPage: p, totalItems: total}" >
+            <div [routerLink]="['/movie/', movie.id]" class="movie-card">
+                <img class="movie-card-img" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="">
+                <span class="release_date">{{movie.release_date | date: 'yyyy'}}</span>
+                <div class="card-body">
+                    <p>{{movie.original_title}}</p>
+                </div>
+                <div class="card-footer">
+                    <p> <img src="../../assets/starIcon.png" width="18" height="18" alt=""> {{movie.vote_average}}/10</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <pagination-controls class="pagination" (pageChange)="pageChangeEvent($event)"></pagination-controls>
+</section>
+<router-outlet></router-outlet>
+
+
+
+

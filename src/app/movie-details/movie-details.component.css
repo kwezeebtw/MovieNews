@@ -1,0 +1,60 @@
+section {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+section img {
+    border-radius: 25px;
+    padding-right: 20px;
+}
+p {
+    margin:0;
+    padding: 0;
+}
+
+h3 {
+    margin:20px 0 20px 0;
+}
+
+
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .card img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .card {
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    border-radius: 0;
+    background-color: black;
+  }
+  .carousel-inner {
+    padding: 1em;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    background-color: #000000;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+.review-card{
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #161824;
+}
+
+.review-card img {
+    padding-right: 20px;
+}
+  
