@@ -5,21 +5,11 @@
     </div>
     <div class="movies-container">
         <div class="movie" *ngFor="let movie of moviesData.results | paginate: { itemsPerPage: 50, currentPage: p, totalItems: total}" >
-            <div [routerLink]="['/movie/', movie.id]" class="movie-card">
-                <img class="movie-card-img" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="">
-                <span class="release_date">{{movie.release_date | date: 'yyyy'}}</span>
-                <div class="card-body">
-                    <p>{{movie.original_title}}</p>
-                </div>
-                <div class="card-footer">
-                    <p> <img src="../../assets/starIcon.png" width="18" height="18" alt=""> {{movie.vote_average}}/10</p>
-                </div>
-            </div>
+            <app-movie-card [movie]="movie" [routerLink]="['/movie/', movie.id]"></app-movie-card>
         </div>
     </div>
     <pagination-controls class="pagination" (pageChange)="pageChangeEvent($event)"></pagination-controls>
 </section>
-<router-outlet></router-outlet>
 
 
 

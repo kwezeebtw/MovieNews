@@ -1,0 +1,10 @@
+<section class="movie__card">
+    <img class="movie__card__img" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="">
+    <span class="movie__card__release_date">{{movie.release_date | date: 'yyyy'}}</span>
+    <div class="movie__card__cardbody">
+        <p>{{movie.original_title}}</p>
+    </div>
+    <div class="movie__card__card-footer">
+        <p> <img src="../../assets/starIcon.png" width="18" height="18" alt=""> {{movie.vote_average}}/10</p>
+    </div>
+</section>

@@ -1,0 +1,28 @@
+p {
+    margin:0;
+}
+
+.movie__card {
+    flex-direction: column;
+    text-align: left;
+    width:200px;
+    display: flex;
+    padding: 25px 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.movie__card__release_date {
+    position: absolute;
+    top:299px;
+    left:10px;
+    background-color: #161824;
+    padding:2px 5px 2px 5px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.movie__card__img {
+    border-radius: 20px;
+}
+

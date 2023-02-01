@@ -13,10 +13,10 @@ import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { ImageModule } from 'primeng/image';
-import { BrowserAnimationsModule } 
-    from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import { RegisterComponent } from './components/register/register.component';
     MovieDetailsComponent,
     LoginComponent,
     RegisterComponent,
+    MovieCardComponent,
   ],
   imports: [
     AppRoutingModule,

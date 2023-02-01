@@ -18,7 +18,7 @@ input {
     background-color: #272935;
     border: none;
     color:white;
-    background: url("../../assets/search-icon.png") no-repeat 15px;
+    background: url("../../../assets/search-icon.png") no-repeat 15px;
     background-color: #272935;
     background-size: 17px;
 }

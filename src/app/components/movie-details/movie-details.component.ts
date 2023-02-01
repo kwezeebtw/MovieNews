@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesDataService } from '../../services/movies-data.service';
+import { MoviesDataService } from '../../../services/movie/movies-data.service'
 import { ActivatedRoute , Params} from '@angular/router';
 import { AnonymousSubject } from 'rxjs/internal/Subject';
 
@@ -15,6 +15,7 @@ export class MovieDetailsComponent implements OnInit{
   similarMovies: any = [];
   responsiveOptions: any
   reviews: any = [];
+  display = true;
   
   constructor(private dataService: MoviesDataService,  private router: ActivatedRoute) {
   }
@@ -26,7 +27,6 @@ export class MovieDetailsComponent implements OnInit{
       this.getSimilarMovie(this.id);
       this.getReviews(this.id);
     })
-
   }
 
   getMovieById(id: number) {
@@ -48,6 +48,9 @@ export class MovieDetailsComponent implements OnInit{
       this.reviews = res.results;
     })
   }
-
+  
+  update(){
+    this.display = !this.display;
+ }
 
 }
