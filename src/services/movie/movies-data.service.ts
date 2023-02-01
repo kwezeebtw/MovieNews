@@ -10,7 +10,7 @@ export class MoviesDataService {
   baseUrl: string = 'https://api.themoviedb.org/3/movie';  
   apiKey: string = 'df928e772131a3cd9859c6dacd2504e5'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getPopularMovies(pageNumber: number) {
     return this.http.get(`${this.baseUrl}/popular?api_key=df928e772131a3cd9859c6dacd2504e5&page=${pageNumber}&language=fr`);

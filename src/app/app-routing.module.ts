@@ -1,7 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { HomeComponent } from './components/home/home.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {
@@ -17,10 +19,19 @@ const routes: Routes = [
     path:'movie/:id',
     component: MovieDetailsComponent
   },
+  {
+    path:'login',
+    component:LoginComponent
+  }, 
+  {
+    path:'register',
+    component: RegisterComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
