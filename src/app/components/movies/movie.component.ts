@@ -3,12 +3,12 @@ import { MoviesDataService } from '../../../services/movie/movies-data.service'
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-movies',
+  templateUrl: './movie.component.html',
+  styleUrls: ['./movie.component.css']
 })
 
-export class HomeComponent implements OnInit {
+export class MovieComponent implements OnInit {
   moviesData: any = [];
   p: number = 1;
   total: number = 0;

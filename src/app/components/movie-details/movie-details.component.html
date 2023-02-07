@@ -7,12 +7,33 @@
             <p>{{movie.release_date | date: 'yyyy'}}</p>
             <p>{{movie.title}}</p>
             Genre : 
-            <p *ngFor="let movie of movie.genres; first as isFirst" style="display: inline;">{{movie.name}} / </p> 
+            <div *ngFor="let genre of movie.genres; let last = last" style="display: inline;">
+                <p *ngIf="last" style="display: inline;" >{{genre.name}} </p>
+                <p *ngIf="!last" style="display: inline;" >{{genre.name}}, </p>
+            </div> 
         </div>
     </section>
     <section class="movie-overview">
         <h3>Resumé</h3>
         <p>{{movie.overview}}</p>
+    </section>
+    <section class="movie-review">
+        <div *ngIf="reviews.length > 0">
+            <div class="review-header">
+                <h3>Reviews ({{reviews.length}} avis disponible)</h3>
+                <p *ngIf="display" (click)='update()'><i class="arrow down"></i></p>
+                <p *ngIf="!display" (click)='update()'><i class="arrow up"></i></p>
+            </div>
+            <ng-container *ngIf="display">
+            <div *ngFor="let review of reviews">
+                <div class="review-card">
+                    <img src="https://www.gravatar.com/avatar/{{review.avatar_path}}" width="80" height="80" alt="">
+                    <p>{{review.content}}</p>
+                </div>
+                <br> 
+            </div>
+            </ng-container>
+        </div>    
     </section>
     <section class="similar-movies">
         <h3>Films similaires</h3>
@@ -25,25 +46,6 @@
                 </div>
             </ng-template>
         </p-carousel>
-    </section>
-    <section class="movie-review">
-        <div *ngIf="reviews.length > 0">
-            <div class="review-header">
-                <h3>Reviews ({{reviews.length}} avis disponible)</h3>
-                <p *ngIf="display" (click)='update()'><i class="arrow down"></i></p>
-                <p *ngIf="!display" (click)='update()'><i class="arrow up"></i></p>
-
-            </div>
-            <ng-container *ngIf="display">
-            <div *ngFor="let review of reviews">
-                <div class="review-card">
-                    <img src="https://www.gravatar.com/avatar/{{review.avatar_path}}" width="80" height="80" alt="">
-                    <p>{{review.content}}</p>
-                </div>
-                <br> 
-            </div>
-            </ng-container>
-        </div>    
     </section>
 </div>
    

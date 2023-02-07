@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
+import {  MovieComponent } from './components/movies/movie.component';
 import { HttpClientModule } from '@angular/common/http';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule} from 'ngx-pagination';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'primeng/carousel';
@@ -17,17 +17,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
+    MovieComponent,
     MovieDetailsComponent,
     LoginComponent,
     RegisterComponent,
     MovieCardComponent,
+    HomeComponent,
   ],
   imports: [
     AppRoutingModule,
