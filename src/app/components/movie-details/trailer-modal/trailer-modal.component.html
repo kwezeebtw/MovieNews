@@ -1,0 +1,12 @@
+<lottie-player  src="https://lottie.host/302a8d53-a2f4-4a09-8e70-d84e11205ae3/YkLTKNEFht.json" (click)="open(content)" background="transparent"  speed="1"  style="width: 160px; height: 160px;"  loop hover></lottie-player>
+<p style="font-style: italic;">Voir la bande annonce</p>
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Bande annonce du film</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+        <iframe allowfullscreen frameborder="0" allow='autoplay' width="100%" height="500" [src]="safeURL"></iframe> 
+	</div>
+</ng-template>
+

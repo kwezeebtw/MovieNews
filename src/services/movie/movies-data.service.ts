@@ -12,6 +12,7 @@ import { Movie, MoviesListResponse } from '../../app/interfaces/movie.model';
 })
 export class MoviesDataService {
 
+  baseUrlSearch: string = 'https://api.themoviedb.org/3/search';
   baseUrl: string = 'https://api.themoviedb.org/3/movie';  
   apiKey: string = 'df928e772131a3cd9859c6dacd2504e5'
 
@@ -41,5 +42,16 @@ export class MoviesDataService {
     return this.http.get<ReviewsListResponse>(`${this.baseUrl}/${id}/reviews?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr`);
   }
 
+  getVideo(id:number): any {
+    return this.http.get<any>(`${this.baseUrl}/${id}/videos?api_key=df928e772131a3cd9859c6dacd2504e5&language=en-US`)
+  }
+
+  getImages(id:number): any {
+    return this.http.get<any>(`${this.baseUrl}/${id}/images?api_key=df928e772131a3cd9859c6dacd2504e5&language=en-US&include_image_language=fr`)
+  }
+
+  getQuerry(query: String): Observable<MoviesListResponse>{
+    return this.http.get<MoviesListResponse>(`${this.baseUrlSearch}/movie?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr&query=${query}`)
+ }
 
 }

@@ -40,4 +40,17 @@ export class MovieComponent implements OnInit {
     this.getPopularMovies();
   }
 
+  getMoviesList(event: any){
+    if(!( event.target.value.length === 0 || this.total === 0)){
+      this.dataService.getQuerry(event.target.value)
+      .subscribe((response: any)=> {
+      this.moviesData = response;
+      this.total = response.total_results;
+      })
+    }else{
+      this.getTopRatedMovies();
+    }
+  }
+
+
 }

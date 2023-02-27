@@ -12,6 +12,16 @@ p {
     position: relative;
 }
 
+.movie__card__img {
+    margin-bottom: 9px;
+}
+
+.movie__card__img:hover {
+    -webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+}
+
 .movie__card__release_date {
     position: absolute;
     top:299px;

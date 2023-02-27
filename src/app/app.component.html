@@ -10,7 +10,7 @@
 <body>
   <app-header></app-header>
   <router-outlet></router-outlet>
-  <app-footer></app-footer>
+  <app-footer *ngif="router.url !== 'home' "></app-footer>
 </body>
 </html>
 
