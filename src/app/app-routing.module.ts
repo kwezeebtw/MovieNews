@@ -4,7 +4,8 @@ import { MovieComponent } from './components/movies/movie.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
+import { AccountComponent } from './components/account/account.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,12 @@ const routes: Routes = [
   {
     path:'register',
     component: RegisterComponent
+  }, 
+  {
+    path:'account',
+    component: AccountComponent
   }
+
 ];
 
 @NgModule({

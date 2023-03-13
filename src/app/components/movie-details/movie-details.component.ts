@@ -5,6 +5,9 @@ import { AnonymousSubject } from 'rxjs/internal/Subject';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MinuteSecondsPipe } from 'src/app/pipe/MinutesSecondPipe';
+import { AuthService } from 'src/services/auth/auth.service';
+import { DatabaseService } from 'src/services/database/database.service';
+import { MovieDatabaseModel } from 'src/services/model/movie-database.model';
 
 @Component({
   selector: 'app-movie-details',
@@ -25,7 +28,14 @@ export class MovieDetailsComponent implements OnInit{
   videoKey: any;
   images: any = [];
   
-  constructor(private dataService: MoviesDataService,  private router: ActivatedRoute, private modalService: NgbModal, private _sanitizer: DomSanitizer) {}
+  
+  constructor(
+    private dataService: MoviesDataService,  
+    private router: ActivatedRoute, 
+    private _sanitizer: DomSanitizer,
+    public authService: AuthService,
+    private databaseService: DatabaseService
+    ) {}
 
   ngOnInit(): void {
     this.router.params.subscribe((params: Params) => {
@@ -36,6 +46,7 @@ export class MovieDetailsComponent implements OnInit{
       this.getVideo(this.id);
       this.getImagesByMovieId(this.id);
     })
+    
   }
 
   getVideo(id: number) {
@@ -70,9 +81,18 @@ export class MovieDetailsComponent implements OnInit{
       this.images = res.posters;
     })
   }
+
   
   update(){
     this.display = !this.display;
+  }
+
+  addFavoriteMovie(movie: MovieDatabaseModel) {
+    this.databaseService.addMovie(movie);
+  }
+
+  test() {
+    console.log("test");
   }
 
 

@@ -11,6 +11,9 @@ import { Movie, MoviesListResponse } from '../../app/interfaces/movie.model';
   providedIn: 'root'
 })
 export class MoviesDataService {
+  getFavoriteMovie() {
+    throw new Error('Method not implemented.');
+  }
 
   baseUrlSearch: string = 'https://api.themoviedb.org/3/search';
   baseUrl: string = 'https://api.themoviedb.org/3/movie';  

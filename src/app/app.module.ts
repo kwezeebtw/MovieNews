@@ -11,6 +11,11 @@ import { NgxPaginationModule} from 'ngx-pagination';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'primeng/carousel';
+import { DataViewModule } from 'primeng/dataview'
+import { FormsModule } from "@angular/forms";
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { AvatarModule } from 'primeng/avatar';
+
 
 import { ButtonModule } from 'primeng/button';
 import { ImageModule } from 'primeng/image';
@@ -18,11 +23,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { MinuteSecondsPipe } from './pipe/MinutesSecondPipe';
 import { GalleriaModule } from 'primeng/galleria';
 import { GallerieImgComponent } from './components/movie-details/gallerie-img/gallerie-img.component';
 import { TrailerModalComponent } from './components/movie-details/trailer-modal/trailer-modal.component';
+import { AngularFireModule } from '@angular/fire/compat'
+import { environment } from 'src/environments/environment.development';
+import { AccountComponent } from './components/account/account.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -35,6 +43,7 @@ import { TrailerModalComponent } from './components/movie-details/trailer-modal/
     LoginComponent,
     RegisterComponent,
     MovieCardComponent,
+    AccountComponent,
     MinuteSecondsPipe,
     HomeComponent,
     GallerieImgComponent,
@@ -46,8 +55,13 @@ import { TrailerModalComponent } from './components/movie-details/trailer-modal/
     RouterModule,
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     CarouselModule,
+    DataViewModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     NgxPaginationModule,
+    AngularFirestoreModule,
+    AvatarModule,
     ButtonModule,
     BrowserAnimationsModule,
     ImageModule

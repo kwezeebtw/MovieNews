@@ -7,7 +7,7 @@ p { color: #f8f8f8; font-family: 'Raleway',sans-serif; font-size: 18px; font-wei
 .modal-holder{
     animation-name: anim;
     animation-duration: 0.3s;
-  }
+}
   
 .modal .modal-content {
     background-color: #161824;
@@ -22,4 +22,8 @@ p { color: #f8f8f8; font-family: 'Raleway',sans-serif; font-size: 18px; font-wei
  0%   {transform: scale(0.5)}
  100% {transform: scale(1)}
 }
-  
+
+p {
+    margin:0 !important;
+    padding:0 !important;
+}

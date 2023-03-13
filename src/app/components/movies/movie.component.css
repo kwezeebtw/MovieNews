@@ -1,9 +1,5 @@
 .movies-section {
-    display:flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-    justify-content: center;
-    font-size: 18px;
+  margin-top: 200px;
 }
 
 p {
@@ -22,6 +18,10 @@ input {
     background-size: 17px;
 }
 
+input {
+    margin: 0.4rem;
+}
+
 textarea:focus, input:focus{
     outline: none;
 }
@@ -34,7 +34,7 @@ textarea:focus, input:focus{
 
 .movies-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     place-items: center;
     align-items: stretch;
 }

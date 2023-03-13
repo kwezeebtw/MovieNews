@@ -1,0 +1,8 @@
+.account--informations {
+    display:flex;
+    align-items: center;
+}
+
+.account--informations-avatar {
+    margin-right: 10px;
+}

@@ -14,6 +14,7 @@ export interface Movie {
 	runtime?: number;
 	overview: string;
 	release_date: string;
+	userId: string;
 }
 
 export interface Movies extends Array<Movie> {}

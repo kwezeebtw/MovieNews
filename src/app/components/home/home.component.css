@@ -1,0 +1,7 @@
+.grid {
+    height: auto;
+    width: 100%;
+    position: absolute;
+    top: 110px;
+    bottom: 0;
+}

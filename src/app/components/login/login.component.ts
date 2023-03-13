@@ -12,32 +12,26 @@ import { AnonymousSubject } from 'rxjs/internal/Subject';
 export class LoginComponent implements OnInit {
 
   request: any = [];
-  apiResponse: any;
+  email: string = '';
+  password: string = '';
 
   constructor(private authService: AuthService,  private router: ActivatedRoute, @Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit(): void {
-    this.createRequestToken();
-  }
-
-  createRequestToken() {
-    this.authService.getRequestToken()
-    .subscribe((response: any) => {
-      this.request = response.request_token;
-      console.log(this.request)
-    });
-
-    this.authService.createNewSession(this.request)
-    .subscribe((response:any) => {
-      this.apiResponse = response.results
-    })
 
   }
 
-  goToUrl(): void {
-    this.document.location.href = `https://www.themoviedb.org/authenticate/${this.request}?redirect_to=http://localhost:4200`;
-
+  login() {
+    this.authService.login(this.email, this.password)
   }
+
+  signInWithGoogle() {
+    this.authService.oAuthLogin();
+  }
+
+  
+
+  
 
   
 
