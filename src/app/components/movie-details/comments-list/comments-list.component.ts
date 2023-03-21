@@ -9,16 +9,21 @@ import { DatabaseService } from 'src/services/database/database.service';
 export class CommentsListComponent implements OnInit {
 
   @Input() id:any;
+  comments: any = []
+  getComments:Array<any> | undefined
 
   constructor(private db: DatabaseService) {};
-
 
   ngOnInit(): void {
     this.getAllCommentsFromMovie(this.id);
   }
 
   getAllCommentsFromMovie(id: number) {
-    console.log(id);
+    this.db.getAllCommentsFromMovieID(id).subscribe(response => {
+      this.getComments = response;
+      this.comments = this.getComments.map(value => value);
+      console.log(this.comments)
+    });
   }
 
 }

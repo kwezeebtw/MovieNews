@@ -30,7 +30,9 @@
                 <p *ngIf="display" (click)='update()'><i class="arrow up"></i></p>
             </div>
             <ng-container *ngIf="!display">
-            <app-add-comment *ngIf="authService.user | async"></app-add-comment>
+            <app-add-comment [movieId]="movie.id"*ngIf="authService.user | async"></app-add-comment>
+            <h2>Commentaire provenant de <strong>Movie News</strong></h2>
+
             <app-comments-list [id]="movie.id"></app-comments-list>
             <div *ngFor="let review of reviews">
                 <h2>Commentaire provenant de <strong>THEMOVIEDB</strong></h2>

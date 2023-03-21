@@ -40,6 +40,7 @@ export class DatabaseService {
   }
 
   addComment(comment: CommentDatabaseModel) {
+    console.log(comment.userPicture);
    return this.db.collection('comments').doc(comment.userId)
       .set(comment, {merge: true})
   }
@@ -56,6 +57,12 @@ export class DatabaseService {
 
   updateWatchedFilm(movie: MovieDatabaseModel) {
     this.db.collection('favoriteMovies').doc(movie.original_title).update({"watched": movie.watched});
+  }
+
+  getAllCommentsFromMovieID(id: number) {
+    return this.db.collection('comments',ref => ref
+    .where('movieId', '==', id)
+    ).valueChanges();
   }
 
 

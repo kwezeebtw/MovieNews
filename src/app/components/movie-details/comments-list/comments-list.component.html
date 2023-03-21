@@ -1,1 +1,6 @@
-<p>comments-list works!</p>
+
+<div class="comments-section" *ngFor="let comment of getComments">
+    <img [src]="comment.userPicture" width="50" height="50">
+    <p>{{comment.username}} : </p>
+    <p>{{comment.commentBody}}</p>
+</div>
