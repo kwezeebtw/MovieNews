@@ -31,6 +31,10 @@ import { TrailerModalComponent } from './components/movie-details/trailer-modal/
 import { AngularFireModule } from '@angular/fire/compat'
 import { environment } from 'src/environments/environment.development';
 import { AccountComponent } from './components/account/account.component';
+import { TabViewModule } from 'primeng/tabview';
+import { PeopleComponent } from './components/people/people.component';
+import { peopleDetailComponent } from './components/people-details/peopleDetail.component';
+import { peopleCardComponent } from './components/people-card/people-card.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -48,6 +52,9 @@ import { AccountComponent } from './components/account/account.component';
     HomeComponent,
     GallerieImgComponent,
     TrailerModalComponent,
+    PeopleComponent,
+    peopleDetailComponent,
+    peopleCardComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -63,6 +70,7 @@ import { AccountComponent } from './components/account/account.component';
     AngularFirestoreModule,
     AvatarModule,
     ButtonModule,
+    TabViewModule,
     BrowserAnimationsModule,
     ImageModule
   ],

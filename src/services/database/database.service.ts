@@ -43,9 +43,10 @@ export class DatabaseService {
     ).valueChanges();
   }
 
-  deleteFavoriteMovie(id: number) {
-    return this.db.doc(`'favoriteMovies'/${id}`)
-    .delete()
+  deleteFavoriteMovieByID(movie: MovieDatabaseModel) {
+   this.db.collection('favoriteMovies').doc(movie.original_title).delete();
+
+    
   }
 
 

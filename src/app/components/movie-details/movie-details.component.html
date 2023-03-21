@@ -21,6 +21,7 @@
         <h2>Synopsis</h2>
         <p>{{movie.overview}}</p>
     </section>
+    <app-people [id]="id"></app-people>
     <section class="movie-review">
         <div *ngIf="reviews.length > 0">
             <div class="review-header">

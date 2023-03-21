@@ -78,3 +78,9 @@ textarea:focus, input:focus{
     justify-content: right;
 }
 
+:host ::ng-deep .p-tabview .p-tabview-panels{
+    background-color: transparent;
+}
+
+
+

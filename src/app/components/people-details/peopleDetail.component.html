@@ -1,0 +1,10 @@
+
+<section>
+    <img class="image" src={{getimage(peo.profile_path)}} width=500px> 
+    <div class="description">
+        <strong><h1>{{peo.name}} ({{ getGender(peo.gender)}}) {{getProfession(peo.known_for_department)}}</h1></strong>
+        <br>
+        <p>{{peo.birthday}} - {{peo.deathday}}</p>
+        <p>{{getDescription(peo.biography)}}</p>
+    </div>
+</section>

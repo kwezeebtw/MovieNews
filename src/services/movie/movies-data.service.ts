@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { ReviewsListResponse, Review } from '../../app/interfaces/reviews.model';
 import { Movie, MoviesListResponse } from '../../app/interfaces/movie.model';
+import { People, PeopleListResponse} from '../../app/interfaces/people.model';
 
 
 @Injectable({
@@ -17,6 +18,7 @@ export class MoviesDataService {
 
   baseUrlSearch: string = 'https://api.themoviedb.org/3/search';
   baseUrl: string = 'https://api.themoviedb.org/3/movie';  
+  baseUrlPeople: string ='https://api.themoviedb.org/3/person/';
   apiKey: string = 'df928e772131a3cd9859c6dacd2504e5'
 
   constructor(private http: HttpClient) {}
@@ -56,5 +58,13 @@ export class MoviesDataService {
   getQuerry(query: String): Observable<MoviesListResponse>{
     return this.http.get<MoviesListResponse>(`${this.baseUrlSearch}/movie?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr&query=${query}`)
  }
+
+  getPerson(id:number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${id}/credits?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr`)
+  }
+
+  getPeopleById(id:number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrlPeople}/${id}?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr`);
+  }
 
 }

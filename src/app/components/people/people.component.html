@@ -1,0 +1,11 @@
+
+
+
+<h2>{{getAuteurs()}}</h2>
+<section>
+    <div class="scrollPeoplecontainer">
+        <div *ngFor="let peo of people">
+            <app-people-card [peo]="peo" [routerLink]="['/peopleDetail', peo.id]"></app-people-card>
+        </div>
+    </div>
+</section>    

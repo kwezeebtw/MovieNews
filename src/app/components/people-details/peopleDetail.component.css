@@ -1,0 +1,70 @@
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    align-items: center;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+  
+  .image{
+    padding: 10%;
+  }
+  p {
+    margin: 0;
+  }
+  .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+.scrollMoviecontainer {
+    scrollbar-width: thin;
+    overflow: auto;
+    display: flex;
+    flex-direction: line;
+    width: 100%;
+  }
+
+  .scrollMoviecontainer::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+    background-color: #000;
+  }
+  
+  .scrollMoviecontainer::-webkit-scrollbar-thumb {
+    background-color: #394159;
+    border-radius: 10px;
+  }
+
+  .scrollMoviecontainer::-webkit-scrollbar-thumb:hover {
+    background-color: #303544;
+  }
+  
+  .scrollMoviecontainer::-webkit-scrollbar-track:hover {
+    background-color: #000;
+  }
+  
+  .scrollMoviecontainer::-webkit-scrollbar-track:active {
+    background-color: #000;
+  }
+  
+  .scrollMoviecontainer::-webkit-scrollbar-track:horizontal:active {
+    background-color: #d4d4d4;
+  }
+
+  .cardPeople {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .outerPeople {
+    margin: 10px;
+  }
+  

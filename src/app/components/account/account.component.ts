@@ -3,12 +3,14 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/services/auth/auth.service';
 import * as dayjs from 'dayjs';
 import { DatabaseService } from 'src/services/database/database.service';
+import { MovieDatabaseModel } from 'src/services/model/movie-database.model';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css']
 })
+
 export class AccountComponent {
   displayName: any;
   email: any ;
@@ -17,6 +19,8 @@ export class AccountComponent {
   creationTime: any;
   favoriteMovies: any = []
   getFavoriteMovies:Array<any> | undefined
+  sortField: any;
+  sortOrder: any;
 
   constructor(private authService: AuthService, private router: Router, private db: DatabaseService) { }
 
@@ -41,9 +45,23 @@ export class AccountComponent {
     });
   }
 
-  test(id: number) {
-    console.log(id);
+  deleteFavoriteMovie(movie: MovieDatabaseModel) {
+    this.db.deleteFavoriteMovieByID(movie);
   }
+
+  onSortChange(event: any) {
+    let value = event.value;
+
+    if (value.indexOf('!') === 0) {
+        this.sortOrder = -1;
+        this.sortField = value.substring(1, value.length);
+    }
+    else {
+        this.sortOrder = 1;
+        this.sortField = value;
+    }
+}
+  
 
   
 }

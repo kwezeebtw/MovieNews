@@ -6,6 +6,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { AccountComponent } from './components/account/account.component';
+import { PeopleComponent } from './components/people/people.component';
+import { peopleCardComponent } from './components/people-card/people-card.component';
+import { peopleDetailComponent } from './components/people-details/peopleDetail.component';
 
 const routes: Routes = [
   {
@@ -36,6 +39,18 @@ const routes: Routes = [
   {
     path:'account',
     component: AccountComponent
+  },
+  {
+    path: 'people',
+    component: PeopleComponent
+  },
+  {
+    path: 'peopleCard',
+    component: peopleCardComponent
+  },
+  {
+    path: 'peopleDetail/:id',
+    component: peopleDetailComponent
   }
 
 ];

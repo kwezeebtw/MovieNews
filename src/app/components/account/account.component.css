@@ -6,3 +6,53 @@
 .account--informations-avatar {
     margin-right: 10px;
 }
+
+.product-grid-item {
+    text-align: center;
+    padding:20px;
+    margin: 10px;
+    
+}
+
+:host ::ng-deep .p-dataview {
+    border: 0,2px solid white;
+}
+
+.card {
+    border: 1;
+    background-color: #0f111d;
+    color: white;
+}
+
+:host ::ng-deep .p-dataview-header {
+    background-color: #161824;
+    border: none;
+}
+
+:host ::ng-deep .p-dataview-content {
+    background-color: #0f111d;
+}
+
+:host ::ng-deep .p-paginator-bottom {
+    background-color: #0f111d;
+    border: none;
+}
+
+input {
+    padding: 7px 7px 7px 40px;
+    border-radius: 25px;
+    background-color: #272935;
+    border: none;
+    color:white;
+    background: url("../../../assets/search-icon.png") no-repeat 15px;
+    background-color: #272935;
+    background-size: 17px;
+}
+
+input {
+    margin: 0.4rem;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
