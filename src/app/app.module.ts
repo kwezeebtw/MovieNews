@@ -17,7 +17,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { AvatarModule } from 'primeng/avatar';
 
 
+
 import { ButtonModule } from 'primeng/button';
+import {DropdownModule} from 'primeng/dropdown';
 import { ImageModule } from 'primeng/image';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
@@ -35,6 +37,9 @@ import { TabViewModule } from 'primeng/tabview';
 import { PeopleComponent } from './components/people/people.component';
 import { peopleDetailComponent } from './components/people-details/peopleDetail.component';
 import { peopleCardComponent } from './components/people-card/people-card.component';
+import { AddCommentComponent } from './components/movie-details/add-comment/add-comment.component';
+import { CommentInputComponent } from './components/movie-details/comment-input/comment-input.component';
+import { CommentsListComponent } from './components/movie-details/comments-list/comments-list.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -55,6 +60,9 @@ import { peopleCardComponent } from './components/people-card/people-card.compon
     PeopleComponent,
     peopleDetailComponent,
     peopleCardComponent,
+    AddCommentComponent,
+    CommentInputComponent,
+    CommentsListComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -62,6 +70,7 @@ import { peopleCardComponent } from './components/people-card/people-card.compon
     RouterModule,
     BrowserModule,
     HttpClientModule,
+    DropdownModule,
     FormsModule,
     CarouselModule,
     DataViewModule,
@@ -75,6 +84,7 @@ import { peopleCardComponent } from './components/people-card/people-card.compon
     ImageModule
   ],
   providers: [],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

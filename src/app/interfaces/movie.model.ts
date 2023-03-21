@@ -5,6 +5,7 @@ export interface Movie {
 	vote_average: number;
 	title: string;
 	popularity: number;
+	status: string;
 	poster_path: string;
 	original_language: string;
 	original_title: string;

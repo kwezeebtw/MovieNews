@@ -1,6 +1,11 @@
 .account--informations {
     display:flex;
     align-items: center;
+    margin:20px;
+}
+
+.account--informations-statistiques {
+    padding:20px;
 }
 
 .account--informations-avatar {
@@ -56,3 +61,22 @@ input {
 textarea:focus, input:focus{
     outline: none;
 }
+
+.product-grid-item-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: baseline;
+}
+
+.product-grid-item-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-name {
+    font-size: 15px;
+    font-weight: bold;
+}
+

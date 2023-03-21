@@ -27,6 +27,7 @@ export class MovieDetailsComponent implements OnInit{
   safeURL: any;
   videoKey: any;
   images: any = [];
+  commentBody: string = ''; 
   
   
   constructor(
@@ -91,8 +92,14 @@ export class MovieDetailsComponent implements OnInit{
     this.databaseService.addMovie(movie);
   }
 
-  test() {
-    console.log("test");
+  onSubmit() {
+    if(this.commentBody.length == 0 || this.commentBody == ''){
+      alert("comment is empty");
+    }
+  }
+
+  comValueChange(commBody: any){
+    this.commentBody = commBody;
   }
 
 

@@ -6,6 +6,7 @@ export interface MovieDatabaseModel {
     original_title: string;
     vote_average: number;
     overview: string;
+    genres: Array<String>;
     popularity: number;
     poster_path: string;
     release_date: string;

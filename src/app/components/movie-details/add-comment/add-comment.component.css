@@ -1,0 +1,12 @@
+.comments {
+    display: flex;
+    margin:20px 0 20px 0;
+    flex-wrap: wrap;
+    align-items: end;
+}
+
+.comment-input {
+    margin-right: 30px;
+}
+
+

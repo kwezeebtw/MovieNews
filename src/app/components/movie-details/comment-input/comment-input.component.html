@@ -1,0 +1,11 @@
+<div>
+    <mat-form-field appearance="outline" floatLabel="never">
+            <textarea #myTextArea [ngModel]="content" matInput
+                matTextareaAutosize matAutosizeMinRows="1" ngPreserveWhitespaces 
+                (ngModelChange)="onTextareaChange($event)" 
+                (focus)="focused()"
+                class="editorTextArea"
+                placeholder="Type here...">
+            </textarea>
+        </mat-form-field>
+</div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Movie } from 'src/app/interfaces/movie.model';
+import { CommentDatabaseModel } from '../model/comment-database.model';
 import { MovieDatabaseModel } from '../model/movie-database.model';
 
 @Injectable({
@@ -25,6 +26,7 @@ export class DatabaseService {
           date: new Date(),
           original_title: movie.original_title,
           overview: movie.overview,
+          genre: movie.genres,
           vote_average: movie.vote_average,
           popularity: movie.popularity,
           release_date: movie.release_date,
@@ -37,6 +39,11 @@ export class DatabaseService {
       
   }
 
+  addComment(comment: CommentDatabaseModel) {
+   return this.db.collection('comments').doc(comment.userId)
+      .set(comment, {merge: true})
+  }
+
   getAllFavoriteMovies() {
     return this.db.collection('favoriteMovies', ref => ref
       .where('userId', '==', this.uid)
@@ -44,9 +51,11 @@ export class DatabaseService {
   }
 
   deleteFavoriteMovieByID(movie: MovieDatabaseModel) {
-   this.db.collection('favoriteMovies').doc(movie.original_title).delete();
+   this.db.collection('favoriteMovies').doc(movie.original_title).delete(); 
+  }
 
-    
+  updateWatchedFilm(movie: MovieDatabaseModel) {
+    this.db.collection('favoriteMovies').doc(movie.original_title).update({"watched": movie.watched});
   }
 
 

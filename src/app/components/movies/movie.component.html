@@ -1,12 +1,13 @@
 
 
-<p-tabView>
-    <p-tabPanel [style]="{'background-color':'red'}"header="Films">
-        <section class="movies-section">
+
+  
+        <section class="movies-section" style="text-align: center;">
+            <input  id="search" (keyup)="getMoviesList($event)" type="text" name="search" placeholder="Rechercher un film">
+
             <div class="container">
                 <div style="display: flex;justify-content: space-between;">
                     <h2>Films les mieux notés</h2>
-                    <input  id="search" (keyup)="getMoviesList($event)" type="text" name="search" placeholder="Rechercher un film">
                 </div>
                 <div class="movies-container">
                     <div class="movie" *ngFor="let movie of moviesData.results | paginate: { itemsPerPage: 50, currentPage: p, totalItems: total}" >
@@ -16,11 +17,6 @@
                 <pagination-controls class="pagination" (pageChange)="pageChangeEvent($event)"></pagination-controls> 
             </div>
         </section>
-    </p-tabPanel>
-    <p-tabPanel header="Series">
-        Content 2
-    </p-tabPanel>
-   
-</p-tabView>
+
 
 

@@ -21,6 +21,9 @@ export class AccountComponent {
   getFavoriteMovies:Array<any> | undefined
   sortField: any;
   sortOrder: any;
+  isWatched: boolean = false;
+  filmWatchedStatus: string = 'Film non vu';
+  sortOptions: any = [];
 
   constructor(private authService: AuthService, private router: Router, private db: DatabaseService) { }
 
@@ -34,8 +37,11 @@ export class AccountComponent {
         this.creationTime = dayjs(authData.metadata.creationTime).format('YYYY-MM-D HH:mm:ss');
         this.showFavoriteMovies()
       }
-    });
-
+      this.sortOptions = [
+        {label: 'Film vu', value: 'watched'},
+        {label: 'Film non vu', value: '!watched'},
+      ];
+      });
   }
 
   showFavoriteMovies() {
@@ -49,18 +55,29 @@ export class AccountComponent {
     this.db.deleteFavoriteMovieByID(movie);
   }
 
+  filmWatched(movie: MovieDatabaseModel) {
+    if(movie.watched) {
+      movie.watched = false;
+    } else {
+      movie.watched = true;
+    }
+     this.db.updateWatchedFilm(movie);
+  }
+
   onSortChange(event: any) {
     let value = event.value;
 
-    if (value.indexOf('!') === 0) {
-        this.sortOrder = -1;
-        this.sortField = value.substring(1, value.length);
+    if (value.indexOf("!") === 0) {
+      this.sortOrder = 1;
+      this.sortField = value.substring(1, value.length);
+    } else {
+      this.sortOrder = -1;
     }
-    else {
-        this.sortOrder = 1;
-        this.sortField = value;
-    }
-}
+
+    
+  }
+
+  
   
 
   
