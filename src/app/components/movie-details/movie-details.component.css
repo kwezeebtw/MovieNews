@@ -15,6 +15,8 @@
   width:100%;
   opacity: 0.3;
   border-bottom: 1px solid #0d6efd;
+  object-fit: cover;
+  object-position: 5% 5%;
 }
 
 .header {
