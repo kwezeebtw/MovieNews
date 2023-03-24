@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { AuthorDetails, Review, ReviewsListResponse } from 'src/app/interfaces/reviews.model';
 import { AuthService } from 'src/services/auth/auth.service';
 import { DatabaseService } from 'src/services/database/database.service';
-import { CommentDatabaseModel } from 'src/services/model/comment-database.model';
 
 @Component({
   selector: 'app-add-comment',
@@ -10,7 +10,7 @@ import { CommentDatabaseModel } from 'src/services/model/comment-database.model'
 })
 export class AddCommentComponent implements OnInit{
 
-  @Input() movieId: string = "";
+  @Input() id:any;
   commentBody: string = ''
   disableCommentButton: boolean = false;
   displayName: any;
@@ -30,21 +30,18 @@ export class AddCommentComponent implements OnInit{
  
 
   addComment() {
-    if(this.commentBody.length == 0 || this.commentBody == ''){
-      alert("Veuillez saisir un commentaire");
-    } else {
-      this.disableCommentButton = true;
       this.cd.detectChanges();
-
-      const com: CommentDatabaseModel = {
-        username: this.displayName,
-        userPicture: this.photoURL,
-        userId: this.db.uid,
-        movieId: this.movieId,
-        commentBody: this.commentBody,
+      const com: Review = {
+        content: this.commentBody,
+        created_at: new Date(),
+        id:this.id,
+        author_details: {
+          username: this.displayName,
+          avatar_path: this.photoURL
+        },
       };
+  
       this.db.addComment(com)
-    }
   }
 
   comValueChange(commBody: any){

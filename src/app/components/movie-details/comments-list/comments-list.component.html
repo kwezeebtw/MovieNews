@@ -1,6 +1,44 @@
 
-<div class="comments-section" *ngFor="let comment of getComments">
-    <img [src]="comment.userPicture" width="50" height="50">
-    <p>{{comment.username}} : </p>
-    <p>{{comment.commentBody}}</p>
+<app-add-comment [id]="id"></app-add-comment>
+
+<div *ngFor="let review of comments">
+    <h2>Commentaire provenant de <strong>THEMOVIEDB</strong></h2>
+    <div class="review-card">
+        <img src="https://www.gravatar.com/avatar/{{review.author_details.avatar_path}}" width="80" height="80" alt="">
+        <div class="review-user">
+            <div class="review-user-informations">
+                <p><strong>{{review.author_details.username}}</strong> a ecrit le <i>{{review.created_at}}</i> : </p>
+                <p><img src="../../assets/starIcon.png" style="margin:0" width="18" height="18" alt=""> {{review.author_details.rating}}/10</p>
+            </div>
+            <p>"{{review.content}}"</p>
+        </div>
+    </div>
+    <br> 
 </div>
+
+<!--
+<section class="movie-review">
+    <div>
+        <div class="review-header">
+            <h3>Avis ({{comments.length}} disponible)</h3>
+        </div>
+        <app-add-comment [id]="id"></app-add-comment>
+        <h2>Commentaire provenant de <strong>Movie News</strong></h2>
+        <app-comments-list [id]="id"></app-comments-list>
+        <div *ngFor="let review of comments">
+            <h2>Commentaire provenant de <strong>THEMOVIEDB</strong></h2>
+            <div class="review-card">
+                <img src="https://www.gravatar.com/avatar/{{review.avatar_path}}" width="80" height="80" alt="">
+                <div class="review-user">
+                    <div class="review-user-informations">
+                        <p><strong>{{review.author_details.name}}</strong> a ecrit le <i>{{review.created_at | date: 'dd/MM/yyyy'}}</i> : </p>
+                        <p><img src="../../assets/starIcon.png" style="margin:0" width="18" height="18" alt=""> {{review.author_details.rating}}/10</p>
+                    </div>
+                    <p>"{{review.content}}"</p>
+                </div>
+            </div>
+            <br> 
+        </div>
+ </div> 
+</section> -->
+

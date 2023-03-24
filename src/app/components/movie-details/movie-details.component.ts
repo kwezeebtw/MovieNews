@@ -24,10 +24,13 @@ export class MovieDetailsComponent implements OnInit{
   responsiveOptions: any
   reviews: any = [];
   display: boolean = true;
+  comments: any = []
+  getCommentsFromDB:Array<any> | undefined
   safeURL: any;
   videoKey: any;
   images: any = [];
   commentBody: string = ''; 
+  test: any = [];
   
   
   constructor(
@@ -43,10 +46,11 @@ export class MovieDetailsComponent implements OnInit{
       this.id = params['id'];
       this.getMovieById(this.id)
       this.getSimilarMovie(this.id);
-      this.getReviews(this.id);
       this.getVideo(this.id);
       this.getImagesByMovieId(this.id);
+
     })
+    
     
   }
 
@@ -71,10 +75,24 @@ export class MovieDetailsComponent implements OnInit{
     });
   }
 
-  getReviews(id:number) {
+  getReviewsFromAPI(id:number) {
     this.dataService.getReviews(id).subscribe((res:any) => {
-      this.reviews = res.results;
+      this.comments = res.results;
     })
+  }
+
+  getReviewsFromDB(id: number) {
+    this.databaseService.getAllCommentsFromMovieID(id).subscribe(response => {
+      this.comments =  response;
+    });
+  }
+
+  getAllReviews(id:number, reviewsForDB: boolean) {
+    if(reviewsForDB) {
+      this.comments = this.getReviewsFromDB(id);
+    } else {
+      this.comments = this.getReviewsFromAPI(id);
+    }
   }
 
   getImagesByMovieId(id:number) {
@@ -82,26 +100,13 @@ export class MovieDetailsComponent implements OnInit{
       this.images = res.posters;
     })
   }
-
-  
-  update(){
-    this.display = !this.display;
-  }
+ 
 
   addFavoriteMovie(movie: MovieDatabaseModel) {
     this.databaseService.addMovie(movie);
   }
 
-  onSubmit() {
-    if(this.commentBody.length == 0 || this.commentBody == ''){
-      alert("comment is empty");
-    }
-  }
-
-  comValueChange(commBody: any){
-    this.commentBody = commBody;
-  }
-
+ 
 
 
 }

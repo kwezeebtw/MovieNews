@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 import { Movie } from 'src/app/interfaces/movie.model';
-import { CommentDatabaseModel } from '../model/comment-database.model';
+import { Review, ReviewsListResponse } from 'src/app/interfaces/reviews.model';
 import { MovieDatabaseModel } from '../model/movie-database.model';
 
 @Injectable({
@@ -39,10 +40,9 @@ export class DatabaseService {
       
   }
 
-  addComment(comment: CommentDatabaseModel) {
-    console.log(comment.userPicture);
-   return this.db.collection('comments').doc(comment.userId)
-      .set(comment, {merge: true})
+  addComment(review: Review) {
+   return this.db.collection('comments').doc(review?.author_details?.username)
+      .set(review, {merge: true})
   }
 
   getAllFavoriteMovies() {
@@ -60,8 +60,8 @@ export class DatabaseService {
   }
 
   getAllCommentsFromMovieID(id: number) {
-    return this.db.collection('comments',ref => ref
-    .where('movieId', '==', id)
+    return this.db.collection<ReviewsListResponse>('comments',ref => ref
+    .where('id', '==', id)
     ).valueChanges();
   }
 

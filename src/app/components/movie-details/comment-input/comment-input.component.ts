@@ -24,7 +24,6 @@ export class CommentInputComponent implements OnInit {
     if(this.initData){
       this.content = this.initData;
     }
-
     this.whatOut = this.comValueChange;
   }
 
