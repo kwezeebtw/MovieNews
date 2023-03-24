@@ -73,7 +73,7 @@
                                         <p *ngIf="last" style="display: inline;" >{{genre.name}} </p>
                                         <p *ngIf="!last" style="display: inline;" >{{genre.name}}, </p>
                                     </div>
-                                    <p> <img src="../../assets/starIcon.png" width="18" height="18" alt=""> {{product.vote_average}}/10</p>
+                                    <p> <img src="assets/starIcon.png" width="18" height="18" alt=""> {{product.vote_average}}/10</p>
                                 </div>
                                 <div class="product-grid-item-bottom">
                                     <p [ngStyle]="{'color': product.watched ? '#2196f3' : 'white'}" (click)="filmWatched(product)" class="p-button-sm" style="cursor: pointer;">{{product.watched ? 'Film vu' : 'Film non vu'}}</p>
