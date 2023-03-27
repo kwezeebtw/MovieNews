@@ -64,16 +64,16 @@ export class FilterComponent implements OnInit {
   
   setwithAdult(){
     if(this.adult){
-      document.getElementById("adult")?.setAttribute("src", "../../assets/family.png");
+      document.getElementById("adult")?.setAttribute("src", "assets/family.png");
     }else{
-      document.getElementById("adult")?.setAttribute("src", "../../assets/pegi18.png");
+      document.getElementById("adult")?.setAttribute("src", "assets/pegi18.png");
     }
     this.adult = !this.adult;
       
   }
   setTopFilm(){
     if(!this.star){
-      document.getElementById("filter")?.setAttribute("src", "../../assets/etoile.png");
+      document.getElementById("filter")?.setAttribute("src", "assets/etoile.png");
       this.getTopRatedMovies()
     }
     this.star = !this.star;
@@ -81,7 +81,7 @@ export class FilterComponent implements OnInit {
 
   setTopRecently(){
     if(this.star){
-      document.getElementById("filter")?.setAttribute("src", "../../assets/reveil.png");
+      document.getElementById("filter")?.setAttribute("src", "assets/reveil.png");
       this.getToplastedMovies()
     }
     this.star = !this.star;

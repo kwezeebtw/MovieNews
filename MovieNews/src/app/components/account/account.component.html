@@ -41,7 +41,7 @@
                             <div class="product-list-item">
                                 <img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image" [alt]="product.name"/>
                                 <div class="product-list-detail">
-                                    <div class="product-name">{{product.original_title}}</div>
+                                    <div class="product-name">{{product.title}}</div>
                                     <div class="product-description">{{product.description}}</div>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                 <div class="product-grid-item-content" [routerLink]="['/movie/', product.movieId]">
                                     <img src="https://image.tmdb.org/t/p/original{{product.poster_path}}" width="190" height="220" style="border-radius: 25px;"[alt]="product.name"/>
                                     <div >{{product.average_note}}</div>
-                                    <div class="product-name">{{product.original_title}}</div>
+                                    <div class="product-name">{{product.title}}</div>
                                     <div *ngFor="let genre of product.genre; let last = last" style="display: inline;font-size: 2px;font-style: italic;">
                                         <p *ngIf="last" style="display: inline;" >{{genre.name}} </p>
                                         <p *ngIf="!last" style="display: inline;" >{{genre.name}}, </p>
