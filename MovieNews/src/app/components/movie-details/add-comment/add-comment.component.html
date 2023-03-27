@@ -1,6 +1,6 @@
 
 <div class="comments">  
-    <app-comment-input #myInput class="comment-input" (comValueChange)="comValueChange($event)"></app-comment-input>
+    <app-comment-input #myInput class="comment-input" [style]="{'flex-grow':'1'}" (comValueChange)="comValueChange($event)"></app-comment-input>
     <button pButton mat-raised-button color="primary" [disabled]="disableCommentButton"
     (click)="addComment()" >Envoyé</button>
 </div>

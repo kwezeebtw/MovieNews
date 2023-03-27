@@ -1,0 +1,103 @@
+.filter__component {
+   /* flex-direction: line;*/
+    text-align: center;
+    width:200px;
+    display: flex;
+    padding: 15px 0;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+/* div*/
+.filter_img {
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+/*img*/
+.filter__espace__img {
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.movies-header {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    padding-bottom:90px;
+    text-align: center;
+}
+
+
+input {
+    padding: 7px 7px 7px 40px;
+    border-radius: 25px;
+    background-color: #272935;
+    border: none;
+    color:white;
+    background: url("../../../assets/search-icon.png") no-repeat 15px;
+    background-color: #272935;
+    background-size: 17px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Style du bouton */
+.dropbtn {
+    background-color: #222336;
+    color: white;
+    font-size: 15px;
+    padding-right:10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-right: 20px;
+  }
+  
+  /* Style du menu déroulant */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #394159;
+    min-width: 160px;
+    z-index: 1;
+    border-radius: 30px;
+  }
+  
+  /* Style des options de menu déroulant */
+  .dropdown-content a {
+    color: black;
+   padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #394159;
+  }
+  
+  /* Style des images */
+  .dropdown-content a img {
+    height: 25px;
+    margin-right: 10px;
+  }

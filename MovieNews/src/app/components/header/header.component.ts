@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
     this.authService.readUser().subscribe(authData => {
       if (authData) {
         this.photoURL = authData.photoURL;
-        this.notPhotoUrl = authData.email?.slice(0,1).toUpperCase()
+        this.notPhotoUrl = "assets/user.jpg"
       }
     });
   }

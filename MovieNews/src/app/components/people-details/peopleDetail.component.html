@@ -4,7 +4,23 @@
     <div class="description">
         <strong><h1>{{peo.name}} ({{ getGender(peo.gender)}}) {{getProfession(peo.known_for_department)}}</h1></strong>
         <br>
-        <p>{{peo.birthday}} - {{peo.deathday}}</p>
+        <p>{{getDate()}}</p>
         <p>{{getDescription(peo.biography)}}</p>
     </div>
+
+ <!--   {{movies | json}}
+
+    <section class="similar-movies">
+        <h2>Films De cet Acteur</h2>
+        <p-carousel [value]="movies" [autoplayInterval]="3000" [numVisible]="5" [numScroll]="3" [circular]="true" [responsiveOptions]="responsiveOptions">
+            <ng-template let-item pTemplate="item">
+                <div class="product-item">
+                    <div class="product-item-content" >
+                        {{item.known_for.id}}
+                        <app-movie-card [movie]="item" [routerLink]="['/movie/', item.id]"></app-movie-card>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </section>-->
 </section>

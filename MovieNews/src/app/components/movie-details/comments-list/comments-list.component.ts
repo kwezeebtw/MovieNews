@@ -11,7 +11,8 @@ import { DatabaseService } from 'src/services/database/database.service';
 export class CommentsListComponent implements OnInit {
 
   @Input() id:any;
-  @Input() comments: any = []
+  @Input() commentsDB: any = []
+  @Input() commentsAPI: any = []
   display: any;
   
   constructor(private db: DatabaseService) {};

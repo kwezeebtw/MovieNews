@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesDataService } from '../../../services/movie/movies-data.service'
 import { ActivatedRoute , Params} from '@angular/router';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MinuteSecondsPipe } from 'src/app/pipe/MinutesSecondPipe';
 import { AuthService } from 'src/services/auth/auth.service';
 import { DatabaseService } from 'src/services/database/database.service';
 import { MovieDatabaseModel } from 'src/services/model/movie-database.model';
+import { combineLatestWith,map, tap, zip } from 'rxjs/operators';
+import { combineLatest, Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-movie-details',
@@ -31,15 +31,16 @@ export class MovieDetailsComponent implements OnInit{
   images: any = [];
   commentBody: string = ''; 
   test: any = [];
-  
+  commentsAPI: any= [];
+  commentsDB: any = [];
+
   
   constructor(
     private dataService: MoviesDataService,  
     private router: ActivatedRoute, 
     private _sanitizer: DomSanitizer,
     public authService: AuthService,
-    private databaseService: DatabaseService
-    ) {}
+    private databaseService: DatabaseService) {}
 
   ngOnInit(): void {
     this.router.params.subscribe((params: Params) => {
@@ -48,10 +49,9 @@ export class MovieDetailsComponent implements OnInit{
       this.getSimilarMovie(this.id);
       this.getVideo(this.id);
       this.getImagesByMovieId(this.id);
-
+      this.getReviewsFromDB(this.id);
+      this.getReviewsFromAPI(this.id);
     })
-    
-    
   }
 
   getVideo(id: number) {
@@ -75,24 +75,16 @@ export class MovieDetailsComponent implements OnInit{
     });
   }
 
-  getReviewsFromAPI(id:number) {
-    this.dataService.getReviews(id).subscribe((res:any) => {
-      this.comments = res.results;
-    })
+  getReviewsFromAPI(id:number){  
+    this.dataService.getReviews(id).subscribe(response => {
+      this.commentsAPI = response.results;
+    });
   }
 
   getReviewsFromDB(id: number) {
     this.databaseService.getAllCommentsFromMovieID(id).subscribe(response => {
-      this.comments =  response;
+      this.commentsDB = response;
     });
-  }
-
-  getAllReviews(id:number, reviewsForDB: boolean) {
-    if(reviewsForDB) {
-      this.comments = this.getReviewsFromDB(id);
-    } else {
-      this.comments = this.getReviewsFromAPI(id);
-    }
   }
 
   getImagesByMovieId(id:number) {
@@ -100,13 +92,9 @@ export class MovieDetailsComponent implements OnInit{
       this.images = res.posters;
     })
   }
- 
 
   addFavoriteMovie(movie: MovieDatabaseModel) {
     this.databaseService.addMovie(movie);
   }
-
- 
-
 
 }

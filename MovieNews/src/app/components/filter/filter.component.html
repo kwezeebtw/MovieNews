@@ -1,0 +1,16 @@
+<section class="movies-header"><!-- class="filter__component"-->
+    <div><!--Rechercher un filmTABLE DES MATIÈRES-->
+        <div class="dropdown">
+            <button class="dropbtn"><img id=filter src="../../assets/etoile.png"  width="40" height="40"> Filtres</button>
+            <div class="dropdown-content">
+                <p><img (click)="setTopFilm()" src="../../assets/etoile.png" width="40" height="40">Popularité</p>
+                <p><img (click)="setTopRecently()" src="../../assets/reveil.png" width="40" height="40">Actualité</p>
+            </div>
+          </div>
+        <input  id="search" (keyup)="getMoviesList($event)" type="text" name="search" placeholder="Rechercher un film">
+        <img id=adult class ="filter__espace__img" (click)="setwithAdult()" src="../../assets/family.png" width="50" height="50" alt="image qui indique si c'est pour adulte">
+    </div>
+</section>
+<div >
+    <app-movies [moviesData]="moviesData" [p]="p" [total]="total"></app-movies> 
+</div>

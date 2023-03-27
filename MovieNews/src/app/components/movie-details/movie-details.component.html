@@ -22,19 +22,10 @@
         <p>{{movie.overview}}</p>
     </section>
     <app-people [id]="id"></app-people>
-    <p>ffffdd</p>
-   
-    <!--<p-tabView style="background-color: black;">
-        <p-tabPanel header="MovieNews" >
-            
-            <app-comments-list [comments]="getAllReviews(id,false)" [id]="id" *ngIf="authService.user | async"></app-comments-list>
-
-        </p-tabPanel>
-        
-        <p-tabPanel header="The Movie DB" >
-
-        </p-tabPanel>
-    </p-tabView>!-->
+    <section class="avis" *ngIf="authService.user | async">
+        <h2>Avis</h2>
+        <app-comments-list [commentsDB]="commentsDB" [commentsAPI]="commentsAPI" [id]="id" ></app-comments-list>
+    </section>
 
     <section class="similar-movies">
         <h2>Films similaires</h2>

@@ -3,6 +3,7 @@ export interface AuthorDetails {
     username?: string;
     avatar_path?: string;
     rating?: number;
+    user_id?: string;
 }
 
 export interface Review {
@@ -10,7 +11,7 @@ export interface Review {
     author?: string;
     author_details?: AuthorDetails;
     content?: string;
-    created_at?: Date;
+    created_at?: string;
     iso_639_1?: string;
     media_id?: number;
     media_title?: string;

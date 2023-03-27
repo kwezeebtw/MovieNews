@@ -19,6 +19,12 @@
     
 }
 
+.product-grid-item-content {
+    cursor: pointer;
+    
+}
+
+
 :host ::ng-deep .p-dataview {
     border: 0,2px solid white;
 }
@@ -78,5 +84,9 @@ textarea:focus, input:focus{
 .product-name {
     font-size: 15px;
     font-weight: bold;
+}
+
+.account--informations-favmovies {
+    padding-bottom: 200px;
 }
 

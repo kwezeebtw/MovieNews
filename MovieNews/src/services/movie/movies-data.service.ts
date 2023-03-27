@@ -26,9 +26,13 @@ export class MoviesDataService {
   getPopularMovies(pageNumber: number): Observable<MoviesListResponse>{
     return this.http.get<MoviesListResponse>(`${this.baseUrl}/popular?api_key=df928e772131a3cd9859c6dacd2504e5&page=${pageNumber}&language=fr`);
   }
-
-  getTopRatedMovies(pageNumber: number): Observable<MoviesListResponse>{
-    return this.http.get<MoviesListResponse>(`${this.baseUrl}/top_rated?api_key=df928e772131a3cd9859c6dacd2504e5&page=${pageNumber}&language=fr`);
+  
+  getTopRatedMovies(pageNumber: number, bool: Boolean, ): Observable<MoviesListResponse>{
+    return this.http.get<MoviesListResponse>(`${this.baseUrl}/top_rated?api_key=df928e772131a3cd9859c6dacd2504e5&page=${pageNumber}&language=fr&include_adult=${bool}`);
+  }
+  
+  getLatest(bool: Boolean, query: String): Observable<MoviesListResponse>{
+    return this.http.get<MoviesListResponse>(`${this.baseUrlSearch}/movie?api_key=df928e772131a3cd9859c6dacd2504e5&query=${query}&language=fr&include_adult=${bool}&year=${new Date().getFullYear()}}`);
   }
 
   getMovie(id: number): Observable<Movie>{
@@ -38,7 +42,7 @@ export class MoviesDataService {
   getSimilarMovies(id: number): Observable<MoviesListResponse> {
     return this.http.get<MoviesListResponse>(`${this.baseUrl}/${id}/similar?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr`);
   }
-
+  
   getMoviesByGenre(id: number): Observable<Movie> {
     return this.http.get<Movie>(`${this.baseUrl}/genre/${id}/movies?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr`);
   }
@@ -55,9 +59,9 @@ export class MoviesDataService {
     return this.http.get<any>(`${this.baseUrl}/${id}/images?api_key=df928e772131a3cd9859c6dacd2504e5&language=en-US&include_image_language=fr`)
   }
 
-  getQuerry(query: String): Observable<MoviesListResponse>{
-    return this.http.get<MoviesListResponse>(`${this.baseUrlSearch}/movie?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr&query=${query}`)
- }
+  getQuerry(query: String, bool: Boolean): Observable<MoviesListResponse>{
+    return this.http.get<MoviesListResponse>(`${this.baseUrlSearch}/movie?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr&query=${query}&include_adult=${bool}`)
+  }
 
   getPerson(id:number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/${id}/credits?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr`)
@@ -66,5 +70,10 @@ export class MoviesDataService {
   getPeopleById(id:number): Observable<any> {
     return this.http.get<any>(`${this.baseUrlPeople}/${id}?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr`);
   }
-
+  /*
+  getPeopleMovies(query: String): Observable<any>{
+    //https://api.themoviedb.org/3/search/person?api_key=df928e772131a3cd9859c6dacd2504e5&language=en-US&query=mor&page=1&include_adult=false
+    return this.http.get<any>('https://api.themoviedb.org/3/search/person?api_key=df928e772131a3cd9859c6dacd2504e5&language=fr&query=morgan&page=1&include_adult=false');
+  }
+*/
 }

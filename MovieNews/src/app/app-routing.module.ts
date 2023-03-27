@@ -9,7 +9,7 @@ import { AccountComponent } from './components/account/account.component';
 import { PeopleComponent } from './components/people/people.component';
 import { peopleCardComponent } from './components/people-card/people-card.component';
 import { peopleDetailComponent } from './components/people-details/peopleDetail.component';
-
+import { FilterComponent } from './components/filter/filter.component';
 const routes: Routes = [
   {
     path: '', 
@@ -51,6 +51,10 @@ const routes: Routes = [
   {
     path: 'peopleDetail/:id',
     component: peopleDetailComponent
+  },
+  {
+    path: 'filter',
+    component: FilterComponent
   }
 
 ];

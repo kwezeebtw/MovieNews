@@ -17,7 +17,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { AvatarModule } from 'primeng/avatar';
 
 
-
 import { ButtonModule } from 'primeng/button';
 import {DropdownModule} from 'primeng/dropdown';
 import { ImageModule } from 'primeng/image';
@@ -40,6 +39,8 @@ import { peopleCardComponent } from './components/people-card/people-card.compon
 import { AddCommentComponent } from './components/movie-details/add-comment/add-comment.component';
 import { CommentInputComponent } from './components/movie-details/comment-input/comment-input.component';
 import { CommentsListComponent } from './components/movie-details/comments-list/comments-list.component';
+import { FilterComponent } from './components/filter/filter.component';
+
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -63,6 +64,7 @@ import { CommentsListComponent } from './components/movie-details/comments-list/
     AddCommentComponent,
     CommentInputComponent,
     CommentsListComponent,
+    FilterComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -15,15 +15,17 @@ export class peopleDetailComponent implements OnInit{
   nameActing: any;
   movies: any = [];
   genre: any;
+  responsiveOptions: any;
+
   constructor(private router: ActivatedRoute, private dataService: MoviesDataService) { }
 
   ngOnInit() {
     this.router.params.subscribe((params: Params) => {
-      this.peoId = params['id'];
-      this.peo = this.getPeopleById(this.peoId);
-    });
-    
+    this.peoId = params['id'];
+    this.peo = this.getPeopleById(this.peoId);
+    })
   }
+
   getPeopleById(id: number) {
     this.dataService.getPeopleById(id)
     .subscribe((response: any) => {
@@ -46,7 +48,11 @@ export class peopleDetailComponent implements OnInit{
 
   getDescription(nom: string){
     if(nom == ""){
-      return "Pas d'autres informations sur cette acteur";
+      if(this.genre == 1)
+        return "Pas d'autres informations sur cette actrice...";
+      else{
+        return "Pas d'autres informations sur cet acteur...";
+      }
     }
     return nom;
   }
@@ -68,4 +74,32 @@ export class peopleDetailComponent implements OnInit{
       return "https://image.tmdb.org/t/p/original/" + profile_path;
     }
   }
+
+  getBirth(){
+    if(this.peo.birthday == null){
+      return "--/--/----"
+    }else{
+      return this.peo.birthday;
+    }
+  }
+
+  getDeath(){
+    if(this.peo.deathday == null){
+      return ""
+    }else{
+      return " - "+this.peo.deathday
+    }
+  }
+
+  getDate(){
+    return this.getBirth() + this.getDeath();
+  }
+/*
+  getPeopleMovies(){//query: String
+    this.dataService.getPeopleMovies(this.peo.name)
+    .subscribe((response: any) => {
+      this.movies = response.results;
+    });
+  }
+*/
 }

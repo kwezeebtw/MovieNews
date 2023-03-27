@@ -24,6 +24,8 @@ export class AccountComponent {
   isWatched: boolean = false;
   filmWatchedStatus: string = 'Film non vu';
   sortOptions: any = [];
+  comments: any = [];
+  user_id:any;
 
   constructor(private authService: AuthService, private router: Router, private db: DatabaseService) { }
 
@@ -33,8 +35,9 @@ export class AccountComponent {
         this.displayName = authData.displayName;
         this.email = authData.email;
         this.photoURL = authData.photoURL;
-        this.notPhotoURL = authData.email?.slice(0,1).toUpperCase();
+        this.notPhotoURL = 'assets/user.jpg';
         this.creationTime = dayjs(authData.metadata.creationTime).format('YYYY-MM-D HH:mm:ss');
+        this.user_id = authData.uid;
         this.showFavoriteMovies()
       }
       this.sortOptions = [
@@ -73,10 +76,9 @@ export class AccountComponent {
     } else {
       this.sortOrder = -1;
     }
-
-    
   }
 
+ 
   
   
 

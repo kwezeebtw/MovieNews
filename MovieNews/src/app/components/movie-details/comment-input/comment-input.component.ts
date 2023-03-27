@@ -14,7 +14,7 @@ export class CommentInputComponent implements OnInit {
   @Output() inRepValueChange = new EventEmitter<string>();
   @Output() inputFocused = new EventEmitter<boolean>();
   whatOut: any;
-  content:string = ' ';
+  content:string = '';
   @Input() isFor:string = 'com';
   isFocus:boolean = false;
 

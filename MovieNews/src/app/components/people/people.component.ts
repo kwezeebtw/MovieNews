@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { MoviesDataService } from '../../../services/movie/movies-data.service';
-import { ActivatedRoute , Params} from '@angular/router';
+
 @Component({
   selector: 'app-people',
   templateUrl: './people.component.html',
@@ -12,16 +13,13 @@ export class PeopleComponent implements OnInit {
   people: any;
   image: any;
   total: any;
-  constructor( 
-    private dataService: MoviesDataService,  
-    private router: ActivatedRoute
-    ) {}
+  constructor( private dataService: MoviesDataService, private router: ActivatedRoute) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.router.params.subscribe((params: Params) => {
-      this.id = params['id']
-      this.getPeopleById(this.id); 
-    })
+    this.id = params['id']
+    this.getPeopleById(this.id);
+    }) 
   }
 
   getPeopleById(idmoovie: number){

@@ -39,7 +39,7 @@ export class AuthService {
   oAuthLogin() {
     return this.fireBaseAuth.signInWithPopup(new GoogleAuthProvider)
       .then(res => {
-          this.router.navigate(['/movies']);
+          this.router.navigate(['/filter']);
           localStorage.setItem('token', JSON.stringify(res.user?.uid))
       })
       .catch(err => alert(err));
@@ -48,7 +48,7 @@ export class AuthService {
   login(email: string, password: string) {
     this.fireBaseAuth.signInWithEmailAndPassword(email,password).then(() => {
         localStorage.setItem('token','true');
-        this.router.navigate(['/movies']);
+        this.router.navigate(['/filter']);
     }, err => {
         alert("Erreur");
     }) 

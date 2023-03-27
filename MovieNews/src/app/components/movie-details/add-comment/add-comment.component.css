@@ -2,7 +2,7 @@
     display: flex;
     margin:20px 0 20px 0;
     flex-wrap: wrap;
-    align-items: end;
+    align-items: center;
 }
 
 .comment-input {

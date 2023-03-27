@@ -5,10 +5,10 @@
         <div class="account--informations">
             <div class="account--informations-avatar">
                 <ng-template [ngIf]="photoURL">
-                    <img src="{{photoURL}}" alt="profile">
+                    <img width="120px" height="120px" src="{{photoURL}}" alt="profile">
                 </ng-template>
                 <ng-template [ngIf]="!photoURL">
-                    <div class="avatar">{{notPhotoURL}}</div>
+                    <img width="120px" height="120px" src="{{notPhotoURL}}" alt="profile">
                 </ng-template>
             </div>
             <div class="account--informations-details">
@@ -19,7 +19,6 @@
         </div>
         <h3>Votre compte en quelques chiffres</h3>
         <div class="account--informations-statistiques">
-            <p>Nombre de films commentés : </p>
             <p>Nombe de films favoris : {{favoriteMovies.length}}</p>
         </div>
         <div class="account--informations-favmovies">
@@ -44,28 +43,22 @@
                                 <div class="product-list-detail">
                                     <div class="product-name">{{product.original_title}}</div>
                                     <div class="product-description">{{product.description}}</div>
-                                    <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{product.category}}</span>
-                                </div>
-                                <div class="product-list-action">
-                                    <span class="product-price">${{product.price}}</span>
-                                    <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
                                 </div>
                             </div>
                         </div>
                         
                     </ng-template>
                  
-                    <ng-template let-product pTemplate="gridItem">
+                    <ng-template let-product pTemplate="gridItem" >
                         <div class="col-12 md:col-3">
                             <div class="product-grid-item card" style="background: transparent;
                             border-style: solid;
                             border-width: 1px;
                             border-color: #272935;;
-                            border-radius: 0.3rem;">
+                            border-radius: 0.3rem;" >
                                 <div class="product-grid-item-top">
-                                    
                                 </div>
-                                <div class="product-grid-item-content">
+                                <div class="product-grid-item-content" [routerLink]="['/movie/', product.movieId]">
                                     <img src="https://image.tmdb.org/t/p/original{{product.poster_path}}" width="190" height="220" style="border-radius: 25px;"[alt]="product.name"/>
                                     <div >{{product.average_note}}</div>
                                     <div class="product-name">{{product.original_title}}</div>
@@ -73,7 +66,7 @@
                                         <p *ngIf="last" style="display: inline;" >{{genre.name}} </p>
                                         <p *ngIf="!last" style="display: inline;" >{{genre.name}}, </p>
                                     </div>
-                                    <p> <img src="assets/starIcon.png" width="18" height="18" alt=""> {{product.vote_average}}/10</p>
+                                    <p> <img src="../../assets/starIcon.png" width="18" height="18" alt=""> {{product.vote_average}}/10</p>
                                 </div>
                                 <div class="product-grid-item-bottom">
                                     <p [ngStyle]="{'color': product.watched ? '#2196f3' : 'white'}" (click)="filmWatched(product)" class="p-button-sm" style="cursor: pointer;">{{product.watched ? 'Film vu' : 'Film non vu'}}</p>
@@ -91,6 +84,5 @@
         </div>
     </div>
 </div>
-
 
 
