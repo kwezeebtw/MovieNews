@@ -15,14 +15,14 @@ Architectures logicielles pour le développement d'applications Web et Interface
 - Mettre en favoris des films
 
 
-# API utilisés :
+# API utilisé :
 
   API TheMovieDB 
 
 
 # Groupe :
 
-AUGEREAU Bastien 
-CHERON Ludovic
-LOCHAIN Alexandre 
-LANCELOT Antoine
+AUGEREAU Bastien  
+CHERON Ludovic  
+LOCHAIN Alexandre   
+LANCELOT Antoine  
