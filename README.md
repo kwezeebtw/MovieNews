@@ -1,5 +1,3 @@
-
-Recherche de films, séries ou animés.
 # MovieNews
 
 MovieNews est un site crée à l'occasion de notre 3ème année de licence d'informatique, dans les modules suivants :
